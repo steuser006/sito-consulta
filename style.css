@@ -2972,39 +2972,41 @@ button {
 
 }
 /* =======================================================
-   NAVBAR MOBILE LOGO + HAMBURGER
+   NAVBAR MOBILE - POSIZIONAMENTO
 ======================================================= */
 
 @media(max-width:768px){
 
-    .navbar .container{
+    .navbar .container {
+
+        display:flex !important;
+
+        align-items:center;
+
+        justify-content:space-between !important;
+
+        width:100%;
+
+    }
+
+
+    .logo {
 
         display:flex;
 
         align-items:center;
 
-        justify-content:space-between;
-
     }
 
 
-    .logo{
-
-        order:1;
-
-    }
-
-
-    .hamburger{
-
-        order:2;
+    .hamburger {
 
         margin-left:auto;
 
     }
 
 
-    .logo img{
+    .logo img {
 
         width:45px;
 
