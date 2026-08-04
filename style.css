@@ -2902,5 +2902,39 @@ button {
 }
 
 }
+/* Logo della Consulta come sfondo della Hero */
 
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:420px;
+    height:420px;
+
+    background-image:url("assets/img/logo.png");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+
+    opacity:.06;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+.hero-content{
+
+    position:relative;
+    z-index:2;
+
+}
 
