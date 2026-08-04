@@ -2972,12 +2972,12 @@ button {
 
 }
 /* =======================================================
-   FIX NAVBAR MOBILE
+   NAVBAR MOBILE LOGO + HAMBURGER
 ======================================================= */
 
-@media (max-width: 768px) {
+@media(max-width:768px){
 
-    .navbar .container {
+    .navbar .container{
 
         display:flex;
 
@@ -2985,45 +2985,32 @@ button {
 
         justify-content:space-between;
 
-        padding:10px 20px;
+    }
+
+
+    .logo{
+
+        order:1;
 
     }
 
 
-    .logo {
+    .hamburger{
 
-        display:flex;
-
-        align-items:center;
-
-        margin-right:auto;
-
-    }
-
-
-    .logo img {
-
-        width:45px;
-
-        height:45px;
-
-        object-fit:contain;
-
-    }
-
-
-    .menu-toggle {
-
-        font-size:1.8rem;
+        order:2;
 
         margin-left:auto;
 
     }
 
 
-    .navbar {
+    .logo img{
 
-        height:70px;
+        width:45px;
+
+        height:45px;
+
+        object-fit:contain;
 
     }
 
