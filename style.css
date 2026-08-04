@@ -2972,20 +2972,16 @@ button {
 
 }
 /* =======================================================
-   NAVBAR MOBILE - POSIZIONAMENTO
+   ALLINEAMENTO LOGO E HAMBURGER MOBILE
 ======================================================= */
 
 @media(max-width:768px){
 
-    .navbar .container {
+    .nav-container {
 
-        display:flex !important;
+        display:flex;
 
         align-items:center;
-
-        justify-content:space-between !important;
-
-        width:100%;
 
     }
 
@@ -2999,20 +2995,28 @@ button {
     }
 
 
-    .hamburger {
-
-        margin-left:auto;
-
-    }
-
-
     .logo img {
+
+        display:block;
 
         width:45px;
 
         height:45px;
 
         object-fit:contain;
+
+    }
+
+
+    .hamburger {
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        height:45px;
 
     }
 
