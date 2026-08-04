@@ -2971,3 +2971,60 @@ button {
     object-fit:contain;
 
 }
+/* =======================================================
+   FIX NAVBAR MOBILE
+======================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar .container {
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:space-between;
+
+        padding:10px 20px;
+
+    }
+
+
+    .logo {
+
+        display:flex;
+
+        align-items:center;
+
+        margin-right:auto;
+
+    }
+
+
+    .logo img {
+
+        width:45px;
+
+        height:45px;
+
+        object-fit:contain;
+
+    }
+
+
+    .menu-toggle {
+
+        font-size:1.8rem;
+
+        margin-left:auto;
+
+    }
+
+
+    .navbar {
+
+        height:70px;
+
+    }
+
+}
