@@ -1839,3 +1839,54 @@ button{
 
 
 }
+/* ======================================================
+   FIX HAMBURGER MENU DOPO SCROLL
+====================================================== */
+
+.hamburger span {
+
+    display:block;
+
+    width:28px;
+
+    height:3px;
+
+    background:white;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+
+/* quando la navbar diventa bianca */
+
+.header.scrolled .hamburger span {
+
+    background:#0f172a;
+
+}
+
+
+/* animazione apertura menu */
+
+.hamburger.active span:nth-child(1){
+
+    transform:translateY(9px) rotate(45deg);
+
+}
+
+
+.hamburger.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+
+.hamburger.active span:nth-child(3){
+
+    transform:translateY(-9px) rotate(-45deg);
+
+}
