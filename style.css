@@ -2078,8 +2078,92 @@ button{
         grid-template-columns:
         1fr;
 /* ======================================================
-   FAQ FIX ANIMAZIONE
+   FAQ ACCORDION DEFINITIVO
 ====================================================== */
+
+
+.faq {
+
+    background:var(--background-soft);
+
+}
+
+
+
+.faq-container {
+
+    max-width:850px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+.faq-item {
+
+    background:white;
+
+    border-radius:var(--radius-md);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:.3s ease;
+
+}
+
+
+
+.faq-item:hover {
+
+    box-shadow:var(--shadow-md);
+
+}
+
+
+
+.faq-question {
+
+    width:100%;
+
+    padding:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    text-align:left;
+
+    font-size:1.05rem;
+
+    font-weight:600;
+
+    color:var(--black);
+
+}
+
+
+
+.faq-question i {
+
+    color:var(--secondary-color);
+
+    transition:.3s ease;
+
+}
+
+
+
 
 .faq-answer {
 
@@ -2090,10 +2174,23 @@ button{
     opacity:0;
 
     transition:
+
     max-height .4s ease,
     opacity .3s ease;
 
 }
+
+
+
+.faq-answer p {
+
+    padding:0 25px 25px;
+
+    color:var(--gray-500);
+
+}
+
+
 
 
 .faq-item.active .faq-answer {
@@ -2103,11 +2200,9 @@ button{
 }
 
 
+
 .faq-item.active .faq-question i {
 
     transform:rotate(45deg);
-
-}
-    }
 
 }
