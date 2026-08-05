@@ -1,64 +1,368 @@
 /* ==========================================================
    CONSULTA GIOVANILE CASTRONUOVO DI SANT'ANDREA (PZ)
 
-   SCRIPT.JS
+   STYLE.CSS
+   VERSIONE PULITA
 
-   PARTE 1:
-   - DOM Setup
-   - Navbar dinamica
-   - Menu mobile hamburger
-   - Smooth Scroll
-   - Active Section Navigation
-
+   Parte 1:
+   - Variables
+   - Reset
+   - Layout
+   - Navbar
+   - Hero
+   - Buttons
+   - About
+   - Mission
+   - Activities
+   - Events
 ========================================================== */
-
-
-"use strict";
 
 
 
 /* ==========================================================
-   DOM ELEMENTS
+   VARIABLES
+========================================================== */
+
+:root {
+
+    --primary-color:#075985;
+    --primary-dark:#023e5a;
+
+    --secondary-color:#0ea5e9;
+
+    --accent-color:#14b8a6;
+
+    --white:#ffffff;
+
+    --black:#0f172a;
+
+    --gray-100:#f8fafc;
+    --gray-200:#e2e8f0;
+    --gray-500:#64748b;
+    --gray-700:#334155;
+
+
+    --shadow-sm:
+    0 5px 20px rgba(15,23,42,.06);
+
+    --shadow-md:
+    0 15px 35px rgba(15,23,42,.10);
+
+    --shadow-lg:
+    0 25px 60px rgba(15,23,42,.15);
+
+
+    --radius-sm:10px;
+    --radius-md:20px;
+    --radius-lg:30px;
+
+
+    --transition:.35s ease;
+
+
+    --font-primary:
+    "Poppins",sans-serif;
+
+}
+
+
+
+/* ==========================================================
+ RESET
 ========================================================== */
 
 
-const header = document.querySelector(".header");
+*,
+*::before,
+*::after{
 
-const hamburger = document.querySelector(".hamburger");
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 
-const navMenu = document.querySelector(".nav-menu");
+}
 
-const navLinks = document.querySelectorAll(".nav-menu a");
 
-const sections = document.querySelectorAll("section[id]");
 
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+body{
+
+    font-family:var(--font-primary);
+
+    color:var(--black);
+
+    line-height:1.7;
+
+    overflow-x:hidden;
+
+}
+
+
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+
+
+ul{
+
+    list-style:none;
+
+}
+
+
+
+button{
+
+    border:none;
+    background:none;
+    cursor:pointer;
+
+}
 
 
 
 
 /* ==========================================================
-   NAVBAR SCROLL EFFECT
+ CONTAINER
 ========================================================== */
 
 
-if(header){
+.container{
 
-    window.addEventListener("scroll",()=>{
+    width:min(1200px,90%);
 
+    margin:auto;
 
-        if(window.scrollY > 50){
-
-            header.classList.add("scrolled");
-
-        }else{
-
-            header.classList.remove("scrolled");
-
-        }
+}
 
 
-    });
 
+/* ==========================================================
+ SECTIONS
+========================================================== */
+
+
+.section{
+
+    padding:100px 0;
+
+}
+
+
+
+.section-title{
+
+    text-align:center;
+
+    max-width:750px;
+
+    margin:
+    0 auto 60px;
+
+}
+
+
+
+.section-title span{
+
+    color:var(--secondary-color);
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+}
+
+
+
+.section-title h2{
+
+    font-size:
+    clamp(2rem,4vw,3rem);
+
+    line-height:1.2;
+
+    margin:15px 0 20px;
+
+}
+
+
+
+.section-title p{
+
+    color:var(--gray-500);
+
+}
+
+
+
+/* ==========================================================
+ HEADER NAVBAR
+========================================================== */
+
+
+.header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+}
+
+
+
+.navbar{
+
+    padding:20px 0;
+
+    transition:.3s;
+
+}
+
+
+
+.header.scrolled .navbar{
+
+    background:
+    rgba(255,255,255,.90);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+
+
+.nav-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+/* LOGO */
+
+
+.logo img{
+
+    width:75px;
+
+    height:75px;
+
+    object-fit:contain;
+
+}
+
+
+
+.nav-menu{
+
+    display:flex;
+
+    gap:25px;
+
+    align-items:center;
+
+}
+
+
+
+.nav-menu a{
+
+    color:white;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+
+
+.header.scrolled .nav-menu a{
+
+    color:var(--black);
+
+}
+
+
+
+.nav-menu a:hover{
+
+    color:var(--secondary-color);
+
+}
+
+
+
+/* HAMBURGER */
+
+
+.hamburger{
+
+    display:none;
+
+    width:45px;
+
+    height:45px;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:6px;
+
+}
+
+
+
+.hamburger span{
+
+    width:25px;
+
+    height:3px;
+
+    background:white;
+
+    border-radius:10px;
 
 }
 
@@ -67,585 +371,914 @@ if(header){
 
 
 /* ==========================================================
-   MOBILE MENU HAMBURGER
+ HERO
 ========================================================== */
 
 
-if(hamburger && navMenu){
+.hero{
 
+    min-height:90vh;
 
-    hamburger.addEventListener("click",()=>{
+    display:flex;
 
+    align-items:center;
 
-        const isOpen =
-        hamburger.classList.toggle("active");
+    position:relative;
 
+    color:white;
 
-        navMenu.classList.toggle(
-            "active",
-            isOpen
-        );
+    background:
 
-
-        hamburger.setAttribute(
-            "aria-expanded",
-            isOpen
-        );
-
-
-        /*
-            Blocca lo scroll quando
-            il menu mobile è aperto
-        */
-
-
-        document.body.style.overflow =
-        isOpen ? "hidden" : "";
-
-
-    });
-
-
-}
-
-
-
-
-
-/* ==========================================================
-   CHIUSURA MENU MOBILE
-========================================================== */
-
-
-navLinks.forEach(link=>{
-
-
-    link.addEventListener("click",()=>{
-
-
-        if(hamburger){
-
-            hamburger.classList.remove(
-                "active"
-            );
-
-        }
-
-
-        if(navMenu){
-
-            navMenu.classList.remove(
-                "active"
-            );
-
-        }
-
-
-        if(hamburger){
-
-            hamburger.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
-
-
-        document.body.style.overflow="";
-
-
-    });
-
-
-});
-
-
-
-
-
-/* ==========================================================
-   CHIUSURA MENU CLICK ESTERNO
-========================================================== */
-
-
-document.addEventListener(
-"click",
-(event)=>{
-
-
-    if(
-        navMenu &&
-        hamburger &&
-        navMenu.classList.contains("active")
-    ){
-
-
-        if(
-            !navMenu.contains(event.target) &&
-            !hamburger.contains(event.target)
-        ){
-
-
-            navMenu.classList.remove(
-                "active"
-            );
-
-
-            hamburger.classList.remove(
-                "active"
-            );
-
-
-            hamburger.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-
-            document.body.style.overflow="";
-
-
-        }
-
-
-    }
-
-
-});
-
-
-
-
-
-/* ==========================================================
-   CHIUSURA MENU CON ESC
-========================================================== */
-
-
-document.addEventListener(
-"keydown",
-(event)=>{
-
-
-    if(event.key === "Escape"){
-
-
-        if(
-            navMenu &&
-            navMenu.classList.contains("active")
-        ){
-
-
-            navMenu.classList.remove(
-                "active"
-            );
-
-
-            hamburger.classList.remove(
-                "active"
-            );
-
-
-            hamburger.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-
-            document.body.style.overflow="";
-
-
-        }
-
-
-    }
-
-
-});
-
-
-
-
-
-/* ==========================================================
-   SMOOTH SCROLL
-========================================================== */
-
-
-navLinks.forEach(link=>{
-
-
-    link.addEventListener(
-    "click",
-    function(event){
-
-
-        const target =
-        document.querySelector(
-            this.getAttribute("href")
-        );
-
-
-        if(target){
-
-
-            event.preventDefault();
-
-
-            target.scrollIntoView({
-
-                behavior:"smooth",
-
-                block:"start"
-
-            });
-
-
-        }
-
-
-    });
-
-
-});
-
-
-
-
-
-/* ==========================================================
-   ACTIVE NAVIGATION ON SCROLL
-========================================================== */
-
-
-const observerOptions = {
-
-
-    threshold:0.35
-
-
-};
-
-
-
-if(sections.length){
-
-
-const sectionObserver =
-new IntersectionObserver(
-(entries)=>{
-
-
-    entries.forEach(entry=>{
-
-
-        if(entry.isIntersecting){
-
-
-            const id =
-            entry.target.getAttribute("id");
-
-
-
-            navLinks.forEach(link=>{
-
-
-                link.classList.remove(
-                    "active"
-                );
-
-
-                if(
-                    link.getAttribute("href")
-                    === `#${id}`
-                ){
-
-
-                    link.classList.add(
-                        "active"
-                    );
-
-
-                }
-
-
-            });
-
-
-        }
-
-
-    });
-
-
-},
-observerOptions);
-
-
-
-sections.forEach(section=>{
-
-
-    sectionObserver.observe(section);
-
-
-});
-
-/* ==========================================================
-   PARTE 2
-
-   - Scroll Reveal Animation
-   - FAQ Accordion
-   - Gallery Lightbox
-   - Back To Top
-
-========================================================== */
-
-
-
-
-
-/* ==========================================================
-   SCROLL REVEAL ANIMATION
-========================================================== */
-
-
-const revealElements = document.querySelectorAll(
-    ".section-title, .mission-card, .activity-card, .event-card, .survey-card, .news-card, .gallery-item, .contact-placeholder, .quick-card"
-);
-
-
-
-if(revealElements.length){
-
-
-    revealElements.forEach(element=>{
-
-
-        element.classList.add(
-            "reveal"
-        );
-
-
-    });
-
-
-
-    const revealObserver =
-    new IntersectionObserver(
-    (entries)=>{
-
-
-        entries.forEach(entry=>{
-
-
-            if(entry.isIntersecting){
-
-
-                entry.target.classList.add(
-                    "show"
-                );
-
-
-                revealObserver.unobserve(
-                    entry.target
-                );
-
-
-            }
-
-
-        });
-
-
-    },
-    {
-
-        threshold:0.15
-
-    });
-
-
-
-    revealElements.forEach(element=>{
-
-
-        revealObserver.observe(
-            element
-        );
-
-
-    });
-
-
-}
-
-
-
-
-
-/* ==========================================================
-   FAQ ACCORDION
-========================================================== */
-
-
-const faqItems =
-document.querySelectorAll(".faq-item");
-
-
-
-if(faqItems.length){
-
-
-    faqItems.forEach(item=>{
-
-
-        const question =
-        item.querySelector(
-            ".faq-question"
-        );
-
-
-        const answer =
-        item.querySelector(
-            ".faq-answer"
-        );
-
-
-
-        if(question && answer){
-
-
-
-            question.addEventListener(
-            "click",
-            ()=>{
-
-
-                const isActive =
-                item.classList.contains(
-                    "active"
-                );
-
-
-
-                // chiude tutte le altre FAQ
-
-                faqItems.forEach(other=>{
-
-
-                    other.classList.remove(
-                        "active"
-                    );
-
-
-                    const otherAnswer =
-                    other.querySelector(
-                        ".faq-answer"
-                    );
-
-
-                    if(otherAnswer){
-
-                        otherAnswer.style.maxHeight =
-                        null;
-
-                    }
-
-
-                });
-
-
-
-
-                if(!isActive){
-
-
-                    item.classList.add(
-                        "active"
-                    );
-
-
-                    answer.style.maxHeight =
-                    answer.scrollHeight + "px";
-
-
-                }
-
-
-
-            });
-
-
-
-        }
-
-
-
-    });
-
-
-}
-
-
-
-
-
-/* ==========================================================
-   GALLERY LIGHTBOX
-========================================================== */
-
-
-const galleryImages =
-document.querySelectorAll(
-    ".gallery-item"
-);
-
-
-
-const lightbox =
-document.getElementById(
-    "lightbox"
-);
-
-
-
-const lightboxImage =
-document.getElementById(
-    "lightbox-image"
-);
-
-
-
-const lightboxClose =
-document.querySelector(
-    ".lightbox-close"
-);
-
-
-
-
-
-function closeLightbox(){
-
-
-    if(!lightbox) return;
-
-
-
-    lightbox.classList.remove(
-        "active"
+    linear-gradient(
+        90deg,
+        rgba(7,32,60,.95),
+        rgba(7,89,133,.75)
     );
 
+    overflow:hidden;
 
-    lightbox.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+}
 
 
-    document.body.style.overflow="";
 
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    url("assets/img/hero.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    z-index:-2;
+
+}
+
+
+
+.hero-container{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:50px;
+
+}
+
+
+
+.hero-text{
+
+    flex:1;
+
+}
+
+
+
+.hero-badge{
+
+    display:inline-flex;
+
+    gap:10px;
+
+    align-items:center;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,255,255,.15);
+
+    margin-bottom:25px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:
+    clamp(2.4rem,5vw,4rem);
+
+    line-height:1.15;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.hero p{
+
+    max-width:600px;
+
+    font-size:1.1rem;
+
+    color:
+    rgba(255,255,255,.85);
+
+    margin-bottom:35px;
+
+}
+
+
+
+.hero-image{
+
+    flex:0 0 40%;
+
+}
+
+
+
+.hero-image img{
+
+    width:100%;
+
+    max-width:430px;
+
+    height:420px;
+
+    object-fit:cover;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.25);
+
+}
+
+
+
+/* ==========================================================
+ BUTTONS
+========================================================== */
+
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.btn{
+
+    padding:14px 35px;
+
+    border-radius:50px;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+.btn-primary{
+
+    background:var(--accent-color);
+
+    color:white;
+
+}
+
+
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.btn-secondary{
+
+    border:1px solid white;
+
+    color:white;
+
+}
+
+
+
+.btn-secondary:hover{
+
+    background:white;
+
+    color:var(--primary-color);
+
+}
+
+
+
+/* ==========================================================
+ ABOUT
+========================================================== */
+
+
+.about{
+
+    background:white;
+
+}
+
+
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+
+
+.about-text h3{
+
+    font-size:2rem;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.about-text p{
+
+    color:var(--gray-700);
+
+    margin-bottom:18px;
+
+}
+
+
+
+.about-card{
+
+    border-radius:var(--radius-lg);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+
+
+.about-card img{
+
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+}
+
+
+
+.about-card-content{
+
+    padding:30px;
+
+}
+
+
+
+/* ==========================================================
+ MISSION
+========================================================== */
+
+
+.mission{
+
+    background:var(--gray-100);
+
+}
+
+
+
+.mission-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.mission-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:.3s;
+
+}
+
+
+
+.mission-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+
+
+.mission-card i{
+
+    font-size:2rem;
+
+    color:var(--secondary-color);
+
+    margin-bottom:20px;
+
+}
+
+
+
+.mission-card h3{
+
+    margin-bottom:15px;
+
+}
+
+
+
+.mission-card p{
+
+    color:var(--gray-500);
+
+}
+
+
+
+/* ==========================================================
+ ATTIVITA'
+========================================================== */
+
+
+.activities{
+
+    background:white;
+
+}
+
+
+
+.timeline{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+
+
+.timeline-item{
+
+    display:flex;
+
+    gap:25px;
+
+    align-items:flex-start;
+
+}
+
+
+
+.timeline-icon{
+
+    width:60px;
+
+    height:60px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--secondary-color);
+
+    color:white;
+
+}
+
+
+
+.timeline-content{
+
+    background:var(--gray-100);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    flex:1;
+
+}
+
+
+
+.timeline-content p{
+
+    color:var(--gray-500);
+
+}
+
+
+
+/* ==========================================================
+ EVENTI
+========================================================== */
+
+
+.events{
+
+    background:var(--gray-100);
+
+}
+
+
+
+.events-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+
+
+.event-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:.3s;
+
+}
+
+
+
+.event-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+
+
+.event-card img{
+
+    width:100%;
+
+    height:240px;
+
+    object-fit:cover;
+
+}
+
+
+
+.event-content{
+
+    padding:30px;
+
+}
+
+
+
+.event-date{
+
+    color:var(--secondary-color);
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.event-content h3{
+
+    margin-bottom:15px;
+
+}
+
+
+
+.event-content p{
+
+    color:var(--gray-500);
+
+    margin-bottom:20px;
+
+}
+/* ==========================================================
+   NEWS
+========================================================== */
+
+
+.news{
+
+    background:var(--gray-100);
+
+}
+
+
+
+.news-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+
+
+.news-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:.3s;
+
+}
+
+
+
+.news-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+
+
+.news-image{
+
+    position:relative;
+
+}
+
+
+
+.news-image img{
+
+    width:100%;
+
+    height:230px;
+
+    object-fit:cover;
+
+}
+
+
+
+.news-date{
+
+    position:absolute;
+
+    bottom:15px;
+
+    left:15px;
+
+    background:var(--primary-color);
+
+    color:white;
+
+    padding:6px 15px;
+
+    border-radius:50px;
+
+    font-size:.8rem;
+
+}
+
+
+
+.news-content{
+
+    padding:30px;
+
+}
+
+
+
+.news-content h3{
+
+    margin-bottom:15px;
+
+}
+
+
+
+.news-content p{
+
+    color:var(--gray-500);
+
+    margin-bottom:20px;
+
+}
+
+
+
+.news-link{
+
+    color:var(--secondary-color);
+
+    font-weight:600;
+
+}
+
+
+
+/* ==========================================================
+   GALLERIA
+========================================================== */
+
+
+.gallery{
+
+    background:white;
+
+}
+
+
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.gallery-item{
+
+    height:280px;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+
+
+.gallery-item img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+
+
+.gallery-item:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+
+
+
+/* ==========================================================
+   SONDAGGI
+========================================================== */
+
+
+.surveys{
+
+    background:var(--gray-100);
+
+}
+
+
+
+.survey-card{
+
+    max-width:750px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    box-shadow:var(--shadow-md);
+
+    text-align:center;
+
+}
+
+
+
+.survey-card > i{
+
+    font-size:3rem;
+
+    color:var(--secondary-color);
+
+    margin-bottom:20px;
+
+}
+
+
+
+.survey-card h3{
+
+    margin-bottom:30px;
+
+}
+
+
+
+.survey-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    text-align:left;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.survey-options label{
+
+    padding:15px;
+
+    background:var(--gray-100);
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+}
+
+
+
+.survey-options input{
+
+    margin-right:10px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   FAQ
+========================================================== */
+
+
+.faq{
+
+    background:white;
+
+}
+
+
+
+.faq-container{
+
+    max-width:850px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+.faq-container details{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+
+
+.faq-container summary{
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    font-size:1.1rem;
+
+}
+
+
+
+.faq-container p{
+
+    margin-top:20px;
+
+    color:var(--gray-500);
 
 }
 
@@ -654,51 +1287,70 @@ function closeLightbox(){
 
 
 
-if(
-    galleryImages.length &&
-    lightbox &&
-    lightboxImage
-){
+/* ==========================================================
+   CONTATTI
+========================================================== */
 
 
-    galleryImages.forEach(image=>{
+.contacts{
 
+    background:var(--gray-100);
 
-        image.addEventListener(
-        "click",
-        ()=>{
-
-
-            lightboxImage.src =
-            image.src;
-
-
-            lightboxImage.alt =
-            image.alt;
+}
 
 
 
-            lightbox.classList.add(
-                "active"
-            );
+.contacts-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
 
 
-            lightbox.setAttribute(
-                "aria-hidden",
-                "false"
-            );
+
+.contact-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-sm);
+
+}
 
 
-            document.body.style.overflow =
-            "hidden";
+
+.contact-card i{
+
+    font-size:2.5rem;
+
+    color:var(--secondary-color);
+
+    margin-bottom:20px;
+
+}
 
 
-        });
+
+.contact-card h3{
+
+    margin-bottom:10px;
+
+}
 
 
-    });
 
+.contact-card p{
 
+    color:var(--gray-500);
 
 }
 
@@ -706,75 +1358,114 @@ if(
 
 
 
-if(lightboxClose){
+/* ==========================================================
+   FOOTER
+========================================================== */
 
 
-    lightboxClose.addEventListener(
-        "click",
-        closeLightbox
-    );
+.footer{
 
+    background:#071426;
 
-}
+    color:white;
 
-
-
-
-
-if(lightbox){
-
-
-    lightbox.addEventListener(
-    "click",
-    (event)=>{
-
-
-        if(
-            event.target === lightbox
-        ){
-
-
-            closeLightbox();
-
-
-        }
-
-
-    });
-
+    padding-top:70px;
 
 }
 
 
 
+.footer-container{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:50px;
+
+}
 
 
 
-/* Chiusura lightbox con ESC */
+.footer-logo img{
+
+    width:90px;
+
+    margin-bottom:20px;
+
+}
 
 
-document.addEventListener(
-"keydown",
-(event)=>{
+
+.footer-logo p{
+
+    color:rgba(255,255,255,.7);
+
+}
 
 
-    if(
-        event.key === "Escape" &&
-        lightbox &&
-        lightbox.classList.contains(
-            "active"
-        )
-    ){
+
+.footer-links,
+.footer-social{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
 
 
-        closeLightbox();
+
+.footer h3{
+
+    color:var(--accent-color);
+
+    margin-bottom:15px;
+
+}
 
 
-    }
+
+.footer-links a{
+
+    color:rgba(255,255,255,.75);
+
+}
 
 
-});
 
+.footer-links a:hover{
+
+    color:white;
+
+}
+
+
+
+.footer-social a{
+
+    font-size:1.5rem;
+
+}
+
+
+
+.footer-bottom{
+
+    margin-top:50px;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-top:
+    1px solid rgba(255,255,255,.1);
+
+    color:rgba(255,255,255,.6);
+
+}
 
 
 
@@ -785,151 +1476,74 @@ document.addEventListener(
 ========================================================== */
 
 
-const backToTop =
-document.getElementById(
-    "backToTop"
-);
+#backToTop{
 
+    position:fixed;
 
+    bottom:30px;
 
+    right:30px;
 
+    width:50px;
 
-if(backToTop){
+    height:50px;
 
+    border-radius:50%;
 
+    background:var(--secondary-color);
 
-    window.addEventListener(
-    "scroll",
-    ()=>{
+    color:white;
 
+    display:flex;
 
-        if(window.scrollY > 500){
+    align-items:center;
 
+    justify-content:center;
 
-            backToTop.classList.add(
-                "visible"
-            );
+    opacity:0;
 
+    visibility:hidden;
 
-        }else{
+    transition:.3s;
 
-
-            backToTop.classList.remove(
-                "visible"
-            );
-
-
-        }
-
-
-    });
-
-
-
-
-
-    backToTop.addEventListener(
-    "click",
-    ()=>{
-
-
-        window.scrollTo({
-
-            top:0,
-
-            behavior:"smooth"
-
-        });
-
-
-    });
-
-
+    z-index:2000;
 
 }
+
+
+
+#backToTop.visible{
+
+    opacity:1;
+
+    visibility:visible;
+
 }
-
-   /* ==========================================================
-   PARTE 3
-
-   - Cookie Management GDPR
-   - Consent Storage
-   - Analytics Preparation
-   - Dynamic Year Footer
-   - Image Optimization
-   - Link Security
-
-========================================================== */
-
-
 
 
 
 /* ==========================================================
-   COOKIE BANNER GDPR
+   ANIMATIONS
 ========================================================== */
 
 
-const cookieBanner =
-document.getElementById(
-    "cookieBanner"
-);
+.reveal{
 
+    opacity:0;
 
-const acceptCookies =
-document.getElementById(
-    "acceptCookies"
-);
+    transform:translateY(40px);
 
+    transition:.7s;
 
-const rejectCookies =
-document.getElementById(
-    "rejectCookies"
-);
-
-
-const preferencesCookies =
-document.getElementById(
-    "preferencesCookies"
-);
+}
 
 
 
-const COOKIE_NAME =
-"consulta_cookie_consent";
+.reveal.show{
 
+    opacity:1;
 
-
-
-
-/* ==========================================================
-   CONTROLLO CONSENSO SALVATO
-========================================================== */
-
-
-const savedConsent =
-localStorage.getItem(
-    COOKIE_NAME
-);
-
-
-
-if(
-    !savedConsent &&
-    cookieBanner
-){
-
-
-    setTimeout(()=>{
-
-
-        cookieBanner.classList.add(
-            "active"
-        );
-
-
-    },1000);
-
+    transform:none;
 
 }
 
@@ -938,362 +1552,290 @@ if(
 
 
 /* ==========================================================
-   ACCETTA COOKIE
+   TABLET
 ========================================================== */
 
 
-if(acceptCookies){
+@media(max-width:992px){
 
 
-    acceptCookies.addEventListener(
-    "click",
-    ()=>{
+    .hamburger{
 
-
-        saveCookieConsent(
-            "accepted"
-        );
-
-
-        enableOptionalServices();
-
-
-    });
-
-
-}
-
-
-
-
-
-
-
-/* ==========================================================
-   RIFIUTA COOKIE
-========================================================== */
-
-
-if(rejectCookies){
-
-
-    rejectCookies.addEventListener(
-    "click",
-    ()=>{
-
-
-        saveCookieConsent(
-            "rejected"
-        );
-
-
-    });
-
-
-}
-
-
-
-
-
-
-/* ==========================================================
-   PREFERENZE COOKIE
-========================================================== */
-
-
-if(preferencesCookies){
-
-
-    preferencesCookies.addEventListener(
-    "click",
-    ()=>{
-
-
-        alert(
-        "Pannello preferenze cookie in fase di configurazione."
-        );
-
-
-    });
-
-
-}
-
-
-
-
-
-
-/* ==========================================================
-   SALVATAGGIO CONSENSO
-========================================================== */
-
-
-function saveCookieConsent(value){
-
-
-    localStorage.setItem(
-
-        COOKIE_NAME,
-
-        JSON.stringify({
-
-            status:value,
-
-            date:
-            new Date()
-            .toISOString()
-
-        })
-
-    );
-
-
-
-    if(cookieBanner){
-
-
-        cookieBanner.classList.remove(
-            "active"
-        );
-
+        display:flex;
 
     }
 
 
-}
 
+    .nav-menu{
 
+        position:fixed;
 
+        top:90px;
 
+        left:-100%;
 
+        width:100%;
 
+        height:calc(100vh - 90px);
 
-/* ==========================================================
-   SERVIZI DOPO CONSENSO
-========================================================== */
+        background:white;
 
+        flex-direction:column;
 
-function enableOptionalServices(){
+        padding:40px;
 
+        gap:25px;
 
-    console.log(
-        "Servizi opzionali attivati dopo consenso."
-    );
-
-
-
-    /*
-    
-    Futuro:
-
-    loadGoogleAnalytics();
-
-    loadGoogleMaps();
-
-    loadYoutubeEmbeds();
-
-
-    */
-
-
-}
-
-
-
-
-
-
-/* ==========================================================
-   GOOGLE ANALYTICS PLACEHOLDER
-========================================================== */
-
-
-function loadGoogleAnalytics(){
-
-
-    /*
-    
-    Inserire qui GA4
-    solo dopo consenso.
-
-    */
-
-
-}
-
-
-
-
-
-
-
-
-/* ==========================================================
-   ANNO AUTOMATICO FOOTER
-========================================================== */
-
-
-const currentYear =
-document.getElementById(
-    "currentYear"
-);
-
-
-
-if(currentYear){
-
-
-    currentYear.textContent =
-    new Date()
-    .getFullYear();
-
-
-}
-
-
-
-
-
-
-
-/* ==========================================================
-   OTTIMIZZAZIONE IMMAGINI
-========================================================== */
-
-
-/*
-
-Evita di applicare lazy loading
-alla foto principale HERO.
-
-*/
-
-
-document
-.querySelectorAll("img")
-.forEach(image=>{
-
-
-    if(
-        !image.hasAttribute("loading") &&
-        !image.closest(".hero")
-    ){
-
-
-        image.setAttribute(
-            "loading",
-            "lazy"
-        );
-
+        transition:.4s;
 
     }
 
 
-});
+
+    .nav-menu.active{
+
+        left:0;
+
+    }
 
 
+
+    .nav-menu a{
+
+        color:var(--black);
+
+        font-size:1.1rem;
+
+    }
+
+
+
+    .hero-container{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+
+
+    .hero p{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+
+
+    .hero-image{
+
+        width:100%;
+
+        display:flex;
+
+        justify-content:center;
+
+    }
+
+
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .mission-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+
+    .events-grid,
+    .news-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+
+    .gallery-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+
+    .contacts-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+}
 
 
 
 
 
 /* ==========================================================
-   BLOCCO LINK PLACEHOLDER #
+   MOBILE
 ========================================================== */
 
 
-document
-.querySelectorAll('a[href="#"]')
-.forEach(link=>{
+@media(max-width:600px){
 
 
-    link.addEventListener(
-    "click",
-    event=>{
+    .container{
 
+        width:92%;
 
-        event.preventDefault();
-
-
-    });
-
-
-});
+    }
 
 
 
+    .section{
+
+        padding:70px 0;
+
+    }
 
 
 
+    .logo img{
 
-/* ==========================================================
-   SICUREZZA LINK ESTERNI
-========================================================== */
+        width:45px;
 
+        height:45px;
 
-document
-.querySelectorAll(
-    "a[target='_blank']"
-)
-.forEach(link=>{
-
-
-    link.setAttribute(
-        "rel",
-        "noopener noreferrer"
-    );
-
-
-});
+    }
 
 
 
+    .hero{
+
+        min-height:auto;
+
+        padding:130px 0 70px;
+
+    }
 
 
 
+    .hero h1{
 
-/* ==========================================================
-   PREVENZIONE ERRORI IMMAGINI
-========================================================== */
+        font-size:2.1rem;
 
-
-document
-.querySelectorAll("img")
-.forEach(image=>{
-
-
-    image.addEventListener(
-    "error",
-    ()=>{
-
-
-        image.style.display =
-        "none";
-
-
-        console.warn(
-            "Immagine non trovata:",
-            image.src
-        );
-
-
-    });
-
-
-});
+    }
 
 
 
+    .hero-buttons{
+
+        flex-direction:column;
+
+    }
 
 
 
+    .btn{
 
-/* ==========================================================
-   FINE SCRIPT.JS
+        width:100%;
 
-   Consulta Giovanile
-   Castronuovo di Sant'Andrea (PZ)
+    }
 
-========================================================== */
+
+
+    .hero-image img{
+
+        height:320px;
+
+    }
+
+
+
+    .section-title{
+
+        margin-bottom:40px;
+
+    }
+
+
+
+    .mission-grid,
+    .events-grid,
+    .news-grid,
+    .gallery-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .timeline-item{
+
+        flex-direction:column;
+
+    }
+
+
+
+    .survey-card{
+
+        padding:25px;
+
+    }
+
+
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+
+
+    .footer-links,
+    .footer-social{
+
+        align-items:center;
+
+    }
+
+
+
+    #backToTop{
+
+        right:15px;
+
+        bottom:15px;
+
+    }
+
+
+
+}
