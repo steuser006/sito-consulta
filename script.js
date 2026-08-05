@@ -3,10 +3,10 @@
 
    SCRIPT.JS
 
-   Parte 1:
+   PARTE 1:
    - DOM Setup
    - Navbar dinamica
-   - Menu mobile
+   - Menu mobile hamburger
    - Smooth Scroll
    - Active Section Navigation
 
@@ -34,54 +34,27 @@ const sections = document.querySelectorAll("section[id]");
 
 
 
+
+
 /* ==========================================================
    NAVBAR SCROLL EFFECT
 ========================================================== */
 
 
-window.addEventListener("scroll", () => {
+if(header){
+
+    window.addEventListener("scroll",()=>{
 
 
-    if (window.scrollY > 50) {
+        if(window.scrollY > 50){
 
-        header.classList.add("scrolled");
+            header.classList.add("scrolled");
 
-    } else {
+        }else{
 
-        header.classList.remove("scrolled");
+            header.classList.remove("scrolled");
 
-    }
-
-
-});
-
-
-
-/* ==========================================================
-   MOBILE MENU
-========================================================== */
-
-
-if (hamburger) {
-
-
-    hamburger.addEventListener("click", () => {
-
-
-        hamburger.classList.toggle("active");
-
-
-        navMenu.classList.toggle("active");
-
-
-        const expanded =
-        hamburger.getAttribute("aria-expanded") === "true";
-
-
-        hamburger.setAttribute(
-            "aria-expanded",
-            !expanded
-        );
+        }
 
 
     });
@@ -91,27 +64,94 @@ if (hamburger) {
 
 
 
+
+
 /* ==========================================================
-   CHIUSURA MENU DOPO CLICK LINK
+   MOBILE MENU HAMBURGER
 ========================================================== */
 
 
-navLinks.forEach(link => {
+if(hamburger && navMenu){
 
 
-    link.addEventListener("click", () => {
+    hamburger.addEventListener("click",()=>{
 
 
-        hamburger.classList.remove("active");
+        const isOpen =
+        hamburger.classList.toggle("active");
 
 
-        navMenu.classList.remove("active");
+        navMenu.classList.toggle(
+            "active",
+            isOpen
+        );
 
 
         hamburger.setAttribute(
             "aria-expanded",
-            "false"
+            isOpen
         );
+
+
+        /*
+            Blocca lo scroll quando
+            il menu mobile è aperto
+        */
+
+
+        document.body.style.overflow =
+        isOpen ? "hidden" : "";
+
+
+    });
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   CHIUSURA MENU MOBILE
+========================================================== */
+
+
+navLinks.forEach(link=>{
+
+
+    link.addEventListener("click",()=>{
+
+
+        if(hamburger){
+
+            hamburger.classList.remove(
+                "active"
+            );
+
+        }
+
+
+        if(navMenu){
+
+            navMenu.classList.remove(
+                "active"
+            );
+
+        }
+
+
+        if(hamburger){
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+
+        document.body.style.overflow="";
 
 
     });
@@ -121,15 +161,123 @@ navLinks.forEach(link => {
 
 
 
+
+
+/* ==========================================================
+   CHIUSURA MENU CLICK ESTERNO
+========================================================== */
+
+
+document.addEventListener(
+"click",
+(event)=>{
+
+
+    if(
+        navMenu &&
+        hamburger &&
+        navMenu.classList.contains("active")
+    ){
+
+
+        if(
+            !navMenu.contains(event.target) &&
+            !hamburger.contains(event.target)
+        ){
+
+
+            navMenu.classList.remove(
+                "active"
+            );
+
+
+            hamburger.classList.remove(
+                "active"
+            );
+
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+            document.body.style.overflow="";
+
+
+        }
+
+
+    }
+
+
+});
+
+
+
+
+
+/* ==========================================================
+   CHIUSURA MENU CON ESC
+========================================================== */
+
+
+document.addEventListener(
+"keydown",
+(event)=>{
+
+
+    if(event.key === "Escape"){
+
+
+        if(
+            navMenu &&
+            navMenu.classList.contains("active")
+        ){
+
+
+            navMenu.classList.remove(
+                "active"
+            );
+
+
+            hamburger.classList.remove(
+                "active"
+            );
+
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+            document.body.style.overflow="";
+
+
+        }
+
+
+    }
+
+
+});
+
+
+
+
+
 /* ==========================================================
    SMOOTH SCROLL
 ========================================================== */
 
 
-navLinks.forEach(link => {
+navLinks.forEach(link=>{
 
 
-    link.addEventListener("click", function(event) {
+    link.addEventListener(
+    "click",
+    function(event){
 
 
         const target =
@@ -138,7 +286,7 @@ navLinks.forEach(link => {
         );
 
 
-        if(target) {
+        if(target){
 
 
             event.preventDefault();
@@ -163,6 +311,8 @@ navLinks.forEach(link => {
 
 
 
+
+
 /* ==========================================================
    ACTIVE NAVIGATION ON SCROLL
 ========================================================== */
@@ -176,6 +326,9 @@ const observerOptions = {
 
 };
 
+
+
+if(sections.length){
 
 
 const sectionObserver =
@@ -193,10 +346,13 @@ new IntersectionObserver(
             entry.target.getAttribute("id");
 
 
+
             navLinks.forEach(link=>{
 
 
-                link.classList.remove("active");
+                link.classList.remove(
+                    "active"
+                );
 
 
                 if(
@@ -204,7 +360,11 @@ new IntersectionObserver(
                     === `#${id}`
                 ){
 
-                    link.classList.add("active");
+
+                    link.classList.add(
+                        "active"
+                    );
+
 
                 }
 
@@ -236,9 +396,11 @@ sections.forEach(section=>{
    - Scroll Reveal Animation
    - FAQ Accordion
    - Gallery Lightbox
-   - Back To Top Button
+   - Back To Top
 
 ========================================================== */
+
+
 
 
 
@@ -248,60 +410,74 @@ sections.forEach(section=>{
 
 
 const revealElements = document.querySelectorAll(
-    ".section-title, .mission-card, .activity-card, .event-card, .survey-card, .news-card, .gallery-item, .contact-placeholder"
+    ".section-title, .mission-card, .activity-card, .event-card, .survey-card, .news-card, .gallery-item, .contact-placeholder, .quick-card"
 );
 
 
 
-revealElements.forEach(element => {
-
-    element.classList.add("reveal");
-
-});
+if(revealElements.length){
 
 
-
-const revealObserver =
-new IntersectionObserver(
-(entries)=>{
+    revealElements.forEach(element=>{
 
 
-    entries.forEach(entry=>{
-
-
-        if(entry.isIntersecting){
-
-
-            entry.target.classList.add("show");
-
-
-            revealObserver.unobserve(
-                entry.target
-            );
-
-
-        }
+        element.classList.add(
+            "reveal"
+        );
 
 
     });
 
 
-},
-{
 
-    threshold:0.15
-
-});
+    const revealObserver =
+    new IntersectionObserver(
+    (entries)=>{
 
 
-
-revealElements.forEach(element=>{
-
-
-    revealObserver.observe(element);
+        entries.forEach(entry=>{
 
 
-});
+            if(entry.isIntersecting){
+
+
+                entry.target.classList.add(
+                    "show"
+                );
+
+
+                revealObserver.unobserve(
+                    entry.target
+                );
+
+
+            }
+
+
+        });
+
+
+    },
+    {
+
+        threshold:0.15
+
+    });
+
+
+
+    revealElements.forEach(element=>{
+
+
+        revealObserver.observe(
+            element
+        );
+
+
+    });
+
+
+}
 
 
 
@@ -317,63 +493,98 @@ document.querySelectorAll(".faq-item");
 
 
 
-faqItems.forEach(item=>{
+if(faqItems.length){
 
 
-    const question =
-    item.querySelector(".faq-question");
+    faqItems.forEach(item=>{
 
 
-    const answer =
-    item.querySelector(".faq-answer");
+        const question =
+        item.querySelector(
+            ".faq-question"
+        );
 
 
-
-    question.addEventListener("click",()=>{
-
-
-        const isActive =
-        item.classList.contains("active");
-
-
-
-        /* chiude tutte le altre FAQ */
-
-        faqItems.forEach(other=>{
-
-
-            other.classList.remove("active");
-
-
-            const otherAnswer =
-            other.querySelector(".faq-answer");
-
-
-            otherAnswer.style.maxHeight =
-            null;
-
-
-        });
+        const answer =
+        item.querySelector(
+            ".faq-answer"
+        );
 
 
 
-        if(!isActive){
+        if(question && answer){
 
 
-            item.classList.add("active");
+
+            question.addEventListener(
+            "click",
+            ()=>{
 
 
-            answer.style.maxHeight =
-            answer.scrollHeight + "px";
+                const isActive =
+                item.classList.contains(
+                    "active"
+                );
+
+
+
+                // chiude tutte le altre FAQ
+
+                faqItems.forEach(other=>{
+
+
+                    other.classList.remove(
+                        "active"
+                    );
+
+
+                    const otherAnswer =
+                    other.querySelector(
+                        ".faq-answer"
+                    );
+
+
+                    if(otherAnswer){
+
+                        otherAnswer.style.maxHeight =
+                        null;
+
+                    }
+
+
+                });
+
+
+
+
+                if(!isActive){
+
+
+                    item.classList.add(
+                        "active"
+                    );
+
+
+                    answer.style.maxHeight =
+                    answer.scrollHeight + "px";
+
+
+                }
+
+
+
+            });
+
 
 
         }
 
 
+
     });
 
 
-});
+}
 
 
 
@@ -385,60 +596,40 @@ faqItems.forEach(item=>{
 
 
 const galleryImages =
-document.querySelectorAll(".gallery-item");
+document.querySelectorAll(
+    ".gallery-item"
+);
+
 
 
 const lightbox =
-document.getElementById("lightbox");
+document.getElementById(
+    "lightbox"
+);
+
 
 
 const lightboxImage =
-document.getElementById("lightbox-image");
+document.getElementById(
+    "lightbox-image"
+);
+
 
 
 const lightboxClose =
-document.querySelector(".lightbox-close");
+document.querySelector(
+    ".lightbox-close"
+);
 
 
-
-galleryImages.forEach(image=>{
-
-
-    image.addEventListener("click",()=>{
-
-
-        lightboxImage.src =
-        image.src;
-
-
-        lightboxImage.alt =
-        image.alt;
-
-
-
-        lightbox.classList.add(
-            "active"
-        );
-
-
-        lightbox.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-
-        document.body.style.overflow =
-        "hidden";
-
-
-    });
-
-
-});
 
 
 
 function closeLightbox(){
+
+
+    if(!lightbox) return;
+
 
 
     lightbox.classList.remove(
@@ -452,11 +643,65 @@ function closeLightbox(){
     );
 
 
-    document.body.style.overflow =
-    "";
+    document.body.style.overflow="";
 
 
 }
+
+
+
+
+
+
+if(
+    galleryImages.length &&
+    lightbox &&
+    lightboxImage
+){
+
+
+    galleryImages.forEach(image=>{
+
+
+        image.addEventListener(
+        "click",
+        ()=>{
+
+
+            lightboxImage.src =
+            image.src;
+
+
+            lightboxImage.alt =
+            image.alt;
+
+
+
+            lightbox.classList.add(
+                "active"
+            );
+
+
+            lightbox.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+            document.body.style.overflow =
+            "hidden";
+
+
+        });
+
+
+    });
+
+
+
+}
+
+
 
 
 
@@ -473,32 +718,39 @@ if(lightboxClose){
 
 
 
+
+
 if(lightbox){
 
 
     lightbox.addEventListener(
-        "click",
-        (event)=>{
+    "click",
+    (event)=>{
 
 
-            if(
-                event.target === lightbox
-            ){
+        if(
+            event.target === lightbox
+        ){
 
-                closeLightbox();
 
-            }
+            closeLightbox();
 
 
         }
-    );
+
+
+    });
 
 
 }
 
 
 
-/* chiusura con ESC */
+
+
+
+/* Chiusura lightbox con ESC */
+
 
 document.addEventListener(
 "keydown",
@@ -507,15 +759,21 @@ document.addEventListener(
 
     if(
         event.key === "Escape" &&
-        lightbox.classList.contains("active")
+        lightbox &&
+        lightbox.classList.contains(
+            "active"
+        )
     ){
 
+
         closeLightbox();
+
 
     }
 
 
 });
+
 
 
 
@@ -533,67 +791,74 @@ document.getElementById(
 
 
 
-window.addEventListener(
-"scroll",
-()=>{
-
-
-    if(window.scrollY > 500){
-
-
-        backToTop.classList.add(
-            "visible"
-        );
-
-
-    }else{
-
-
-        backToTop.classList.remove(
-            "visible"
-        );
-
-
-    }
-
-
-});
-
 
 
 if(backToTop){
 
 
-    backToTop.addEventListener(
-        "click",
-        ()=>{
+
+    window.addEventListener(
+    "scroll",
+    ()=>{
 
 
-            window.scrollTo({
+        if(window.scrollY > 500){
 
-                top:0,
 
-                behavior:"smooth"
+            backToTop.classList.add(
+                "visible"
+            );
 
-            });
+
+        }else{
+
+
+            backToTop.classList.remove(
+                "visible"
+            );
 
 
         }
-    );
+
+
+    });
+
+
+
+
+
+    backToTop.addEventListener(
+    "click",
+    ()=>{
+
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+
+    });
+
 
 
 }
-
-/* ==========================================================
+   /* ==========================================================
    PARTE 3
 
    - Cookie Management GDPR
    - Consent Storage
    - Analytics Preparation
-   - Dynamic Year
-   - Final Optimizations
+   - Dynamic Year Footer
+   - Image Optimization
+   - Link Security
 
 ========================================================== */
+
+
 
 
 
@@ -634,7 +899,9 @@ const COOKIE_NAME =
 
 
 
-/* Recupera consenso salvato */
+/* ==========================================================
+   CONTROLLO CONSENSO SALVATO
+========================================================== */
 
 
 const savedConsent =
@@ -644,7 +911,10 @@ localStorage.getItem(
 
 
 
-if(!savedConsent && cookieBanner){
+if(
+    !savedConsent &&
+    cookieBanner
+){
 
 
     setTimeout(()=>{
@@ -673,23 +943,25 @@ if(acceptCookies){
 
 
     acceptCookies.addEventListener(
-        "click",
-        ()=>{
+    "click",
+    ()=>{
 
 
-            saveCookieConsent(
-                "accepted"
-            );
+        saveCookieConsent(
+            "accepted"
+        );
 
 
-            enableOptionalServices();
+        enableOptionalServices();
 
 
-        }
-    );
+    });
 
 
 }
+
+
+
 
 
 
@@ -703,17 +975,16 @@ if(rejectCookies){
 
 
     rejectCookies.addEventListener(
-        "click",
-        ()=>{
+    "click",
+    ()=>{
 
 
-            saveCookieConsent(
-                "rejected"
-            );
+        saveCookieConsent(
+            "rejected"
+        );
 
 
-        }
-    );
+    });
 
 
 }
@@ -721,11 +992,10 @@ if(rejectCookies){
 
 
 
+
+
 /* ==========================================================
    PREFERENZE COOKIE
-
-   Predisposto per futura estensione
-   con pannello avanzato
 ========================================================== */
 
 
@@ -733,20 +1003,20 @@ if(preferencesCookies){
 
 
     preferencesCookies.addEventListener(
-        "click",
-        ()=>{
+    "click",
+    ()=>{
 
 
-            alert(
-                "Pannello preferenze cookie in fase di configurazione."
-            );
+        alert(
+        "Pannello preferenze cookie in fase di configurazione."
+        );
 
 
-        }
-    );
+    });
 
 
 }
+
 
 
 
@@ -768,7 +1038,8 @@ function saveCookieConsent(value){
 
             status:value,
 
-            date:new Date()
+            date:
+            new Date()
             .toISOString()
 
         })
@@ -794,15 +1065,10 @@ function saveCookieConsent(value){
 
 
 
+
+
 /* ==========================================================
-   SERVIZI OPZIONALI
-
-   Qui verranno caricati solamente
-   dopo consenso:
-
-   - Google Analytics 4
-   - Google Maps
-   - YouTube Embed
+   SERVIZI DOPO CONSENSO
 ========================================================== */
 
 
@@ -817,13 +1083,13 @@ function enableOptionalServices(){
 
     /*
     
-    Esempio futuro:
+    Futuro:
 
     loadGoogleAnalytics();
 
-    loadYoutubeEmbeds();
-
     loadGoogleMaps();
+
+    loadYoutubeEmbeds();
 
 
     */
@@ -838,9 +1104,6 @@ function enableOptionalServices(){
 
 /* ==========================================================
    GOOGLE ANALYTICS PLACEHOLDER
-
-   NON ATTIVO FINO AL CONSENSO
-
 ========================================================== */
 
 
@@ -849,16 +1112,16 @@ function loadGoogleAnalytics(){
 
     /*
     
-    Inserire qui il codice GA4
+    Inserire qui GA4
     solo dopo consenso.
-
-    Non inserire script analytics
-    direttamente nell'HTML.
 
     */
 
 
 }
+
+
+
 
 
 
@@ -890,9 +1153,19 @@ if(currentYear){
 
 
 
+
+
 /* ==========================================================
-   PRELOAD OTTIMIZZATO IMMAGINI
+   OTTIMIZZAZIONE IMMAGINI
 ========================================================== */
+
+
+/*
+
+Evita di applicare lazy loading
+alla foto principale HERO.
+
+*/
 
 
 document
@@ -900,7 +1173,10 @@ document
 .forEach(image=>{
 
 
-    if(!image.hasAttribute("loading")){
+    if(
+        !image.hasAttribute("loading") &&
+        !image.closest(".hero")
+    ){
 
 
         image.setAttribute(
@@ -918,10 +1194,10 @@ document
 
 
 
-/* ==========================================================
-   BLOCCO DEFAULT LINK PLACEHOLDER
 
-   Evita refresh per link #
+
+/* ==========================================================
+   BLOCCO LINK PLACEHOLDER #
 ========================================================== */
 
 
@@ -931,15 +1207,14 @@ document
 
 
     link.addEventListener(
-        "click",
-        event=>{
+    "click",
+    event=>{
 
 
-            event.preventDefault();
+        event.preventDefault();
 
 
-        }
-    );
+    });
 
 
 });
@@ -948,11 +1223,10 @@ document
 
 
 
-/* ==========================================================
-   SICUREZZA BASE
 
-   Previene apertura indesiderata
-   futura per link esterni
+
+/* ==========================================================
+   SICUREZZA LINK ESTERNI
 ========================================================== */
 
 
@@ -975,6 +1249,44 @@ document
 
 
 
+
+
+/* ==========================================================
+   PREVENZIONE ERRORI IMMAGINI
+========================================================== */
+
+
+document
+.querySelectorAll("img")
+.forEach(image=>{
+
+
+    image.addEventListener(
+    "error",
+    ()=>{
+
+
+        image.style.display =
+        "none";
+
+
+        console.warn(
+            "Immagine non trovata:",
+            image.src
+        );
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
 /* ==========================================================
    FINE SCRIPT.JS
 
@@ -982,3 +1294,5 @@ document
    Castronuovo di Sant'Andrea (PZ)
 
 ========================================================== */
+
+}
