@@ -488,9 +488,7 @@ if(revealElements.length){
 ========================================================== */
 
 
-const faqItems =
-document.querySelectorAll(".faq-item");
-
+const faqItems = document.querySelectorAll(".faq-item");
 
 
 if(faqItems.length){
@@ -499,55 +497,36 @@ if(faqItems.length){
     faqItems.forEach(item=>{
 
 
-        const question =
-        item.querySelector(
-            ".faq-question"
-        );
+        const question = item.querySelector(".faq-question");
 
-
-        const answer =
-        item.querySelector(
-            ".faq-answer"
-        );
+        const answer = item.querySelector(".faq-answer");
 
 
 
         if(question && answer){
 
 
-
-            question.addEventListener(
-            "click",
-            ()=>{
+            question.addEventListener("click",()=>{
 
 
                 const isActive =
-                item.classList.contains(
-                    "active"
-                );
+                item.classList.contains("active");
 
 
-
-                // chiude tutte le altre FAQ
 
                 faqItems.forEach(other=>{
 
 
-                    other.classList.remove(
-                        "active"
-                    );
+                    other.classList.remove("active");
 
 
                     const otherAnswer =
-                    other.querySelector(
-                        ".faq-answer"
-                    );
+                    other.querySelector(".faq-answer");
 
 
                     if(otherAnswer){
 
-                        otherAnswer.style.maxHeight =
-                        null;
+                        otherAnswer.style.maxHeight = null;
 
                     }
 
@@ -560,9 +539,7 @@ if(faqItems.length){
                 if(!isActive){
 
 
-                    item.classList.add(
-                        "active"
-                    );
+                    item.classList.add("active");
 
 
                     answer.style.maxHeight =
@@ -572,20 +549,16 @@ if(faqItems.length){
                 }
 
 
-
             });
 
 
-
         }
-
 
 
     });
 
 
 }
-
 
 
 
