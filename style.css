@@ -2078,56 +2078,30 @@ button{
         grid-template-columns:
         1fr;
 /* ======================================================
-   FAQ ACCORDION DEFINITIVO
+   FAQ SEMPLICE ACCORDION
 ====================================================== */
 
+.faq-answer {
 
-.faq {
+    display:none;
 
-    background:var(--background-soft);
-
-}
-
-
-
-.faq-container {
-
-    max-width:850px;
-
-    margin:auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:15px;
+    padding:0 25px 25px;
 
 }
 
 
+.faq-answer p {
 
-.faq-item {
-
-    background:white;
-
-    border-radius:var(--radius-md);
-
-    overflow:hidden;
-
-    box-shadow:var(--shadow-sm);
-
-    transition:.3s ease;
+    color:var(--gray-500);
 
 }
 
 
+.faq-item.active .faq-answer {
 
-.faq-item:hover {
-
-    box-shadow:var(--shadow-md);
+    display:block;
 
 }
-
 
 
 .faq-question {
@@ -2142,63 +2116,16 @@ button{
 
     align-items:center;
 
-    text-align:left;
-
-    font-size:1.05rem;
-
-    font-weight:600;
-
-    color:var(--black);
+    cursor:pointer;
 
 }
-
 
 
 .faq-question i {
 
-    color:var(--secondary-color);
-
     transition:.3s ease;
 
 }
-
-
-
-
-.faq-answer {
-
-    max-height:0;
-
-    overflow:hidden;
-
-    opacity:0;
-
-    transition:
-
-    max-height .4s ease,
-    opacity .3s ease;
-
-}
-
-
-
-.faq-answer p {
-
-    padding:0 25px 25px;
-
-    color:var(--gray-500);
-
-}
-
-
-
-
-.faq-item.active .faq-answer {
-
-    opacity:1;
-
-}
-
 
 
 .faq-item.active .faq-question i {
