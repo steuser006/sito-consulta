@@ -2077,7 +2077,37 @@ button{
 
         grid-template-columns:
         1fr;
+/* ======================================================
+   FAQ FIX ANIMAZIONE
+====================================================== */
 
+.faq-answer {
+
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transition:
+    max-height .4s ease,
+    opacity .3s ease;
+
+}
+
+
+.faq-item.active .faq-answer {
+
+    opacity:1;
+
+}
+
+
+.faq-item.active .faq-question i {
+
+    transform:rotate(45deg);
+
+}
     }
 
 }
