@@ -2,71 +2,53 @@
 <html lang="it">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Responsive -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO -->
     <title>Consulta Giovanile Castronuovo di Sant'Andrea (PZ)</title>
 
     <meta name="description"
-        content="Sito ufficiale della Consulta Giovanile di Castronuovo di Sant'Andrea (PZ). Uno spazio dedicato ai giovani, alla partecipazione, ai progetti e alla crescita della comunità.">
+        content="Sito ufficiale della Consulta Giovanile di Castronuovo di Sant'Andrea. Uno spazio dedicato ai giovani, alla partecipazione attiva e alla crescita della comunità.">
 
     <meta name="keywords"
-        content="Consulta Giovanile, Castronuovo di Sant'Andrea, Giovani, Basilicata, Eventi, Partecipazione, Comune">
+        content="Consulta Giovanile, Castronuovo di Sant'Andrea, Giovani, Basilicata, Comune, Eventi">
 
     <meta name="author" content="Consulta Giovanile Castronuovo di Sant'Andrea">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Consulta Giovanile Castronuovo di Sant'Andrea">
+    <meta property="og:title"
+        content="Consulta Giovanile Castronuovo di Sant'Andrea">
+
     <meta property="og:description"
-        content="Uno spazio dedicato ai giovani, alle idee e alla partecipazione attiva.">
+        content="Partecipa alle attività della Consulta Giovanile.">
+
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/img/og-image.jpg">
-    <meta property="og:url" content="https://www.example.it">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="assets/img/logo.png">
 
-    <!-- Theme -->
-    <meta name="theme-color" content="#0b4f84">
+    <meta property="og:locale" content="it_IT">
 
-    <!-- Favicon -->
-    <link rel="icon" href="assets/img/favicon.ico">
+    <link rel="icon" href="assets/img/favicon.png">
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-   <!-- ==========================================================
-     Skip Link (Accessibilità)
-=========================================================== -->
-
 <a class="skip-link" href="#main-content">
     Vai al contenuto principale
 </a>
-
-<!-- ==========================================================
-     HEADER
-=========================================================== -->
 
 <header class="header">
 
@@ -74,21 +56,21 @@
 
         <div class="container nav-container">
 
-            <!-- ==================================================
-                 LOGO
-            =================================================== -->
+            <!-- LOGO -->
 
-            <a href="#hero" class="logo" aria-label="Home">
+            <a href="#hero"
+               class="logo"
+               aria-label="Home">
 
                 <img
                     src="assets/img/logo.png"
-                    alt="Logo Consulta Giovanile Castronuovo di Sant'Andrea">
+                    alt="Logo Consulta Giovanile">
 
             </a>
 
-            <!-- MENU -->
+            <!-- MENU DESKTOP -->
 
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
 
                 <li><a href="#hero">Home</a></li>
 
@@ -112,12 +94,11 @@
 
             </ul>
 
-            <!-- HAMBURGER -->
+            <!-- MENU MOBILE -->
 
-            <button
-                class="hamburger"
-                type="button"
-                aria-label="Apri menu di navigazione"
+            <button class="hamburger"
+                id="hamburger"
+                aria-label="Apri menu"
                 aria-expanded="false"
                 aria-controls="nav-menu">
 
@@ -133,13 +114,7 @@
 
 </header>
 
-<!-- ==========================================================
-     MAIN
-=========================================================== -->
-
-<main id="main-content">
-
-        <!-- <!-- =======================================================
+<!-- =======================================================
      HERO
 ======================================================= -->
 
@@ -147,90 +122,93 @@
 
     <div class="hero-overlay"></div>
 
-    <!-- Logo filigrana -->
-    <img
-        src="assets/img/logo.png"
-         alt=""
-        aria-hidden="true">
+    <div class="container hero-container">
 
-    <div class="hero-content container hero-container">
-
-        
-
-
-        <!-- TESTO SINISTRA -->
+        <!-- TESTO -->
 
         <div class="hero-text">
 
-
-            <span class="hero-tag">
-
-    Consulta Giovanile
-
-</span>
-
-
+            <span class="hero-badge">
+                <i class="fa-solid fa-users"></i>
+                Consulta Giovanile
+            </span>
 
             <h1>
-
-                CONSULTA GIOVANILE
+                Consulta Giovanile
                 <br>
-                CASTRONUOVO DI
-                <br>
-                SANT'ANDREA (PZ)
-
+                Castronuovo di Sant'Andrea
+                <span>(PZ)</span>
             </h1>
 
-
-
             <p>
-
-                Uno spazio dedicato ai giovani,
-                alle idee e alla partecipazione attiva
-                per la crescita della comunità.
-
+                Uno spazio dedicato ai giovani, alle idee e alla partecipazione
+                attiva per costruire insieme il futuro della nostra comunità.
             </p>
-
-
-
 
             <div class="hero-buttons">
 
-
                 <a href="#about" class="btn btn-primary">
-
                     Scopri di più
-
                 </a>
 
-
-
-                
-
+                <a href="#activities" class="btn btn-secondary">
+                    Le nostre attività
+                </a>
 
             </div>
 
+            <!-- Statistiche (facoltative, modificabili in qualsiasi momento) -->
 
+            <div class="hero-stats">
+
+                <div class="stat">
+
+                    <strong>Giovani</strong>
+
+                    <span>Partecipazione</span>
+
+                </div>
+
+                <div class="stat">
+
+                    <strong>Eventi</strong>
+
+                    <span>Territorio</span>
+
+                </div>
+
+                <div class="stat">
+
+                    <strong>Progetti</strong>
+
+                    <span>Comunità</span>
+
+                </div>
+
+            </div>
 
         </div>
 
+        <!-- FOTO PAESE -->
 
+        <div class="hero-image">
 
+            <img
+                src="https://www.ilmioviaggioinbasilicata.it/wp-content/uploads/2024/01/Castronuovo-di-SantAndrea.jpg"
+                alt="Panorama di Castronuovo di Sant'Andrea"
+                loading="eager">
 
-
-        
-
-        
         </div>
-
-
-
 
     </div>
 
-
 </section>
-        <!-- =======================================================
+
+
+
+
+
+    <!-- =======================================================
      ACCESSO RAPIDO
 ======================================================= -->
 
@@ -240,12 +218,12 @@
 
         <div class="section-title">
 
-            <span>Esplora il sito</span>
+            <span>Navigazione Rapida</span>
 
-            <h2>Accesso rapido</h2>
+            <h2>Esplora il sito</h2>
 
             <p>
-                Seleziona la sezione che desideri visitare.
+                Accedi rapidamente alle principali sezioni della Consulta Giovanile.
             </p>
 
         </div>
@@ -254,42 +232,50 @@
 
             <a href="#about" class="quick-card">
                 <i class="fa-solid fa-users"></i>
-                <span>Chi siamo</span>
+                <h3>Chi siamo</h3>
+                <p>Scopri la Consulta Giovanile.</p>
             </a>
 
             <a href="#mission" class="quick-card">
                 <i class="fa-solid fa-bullseye"></i>
-                <span>Missione</span>
+                <h3>Missione</h3>
+                <p>I nostri obiettivi.</p>
             </a>
 
             <a href="#activities" class="quick-card">
                 <i class="fa-solid fa-calendar-check"></i>
-                <span>Attività</span>
+                <h3>Attività</h3>
+                <p>Le iniziative in programma.</p>
             </a>
 
             <a href="#events" class="quick-card">
                 <i class="fa-solid fa-calendar-days"></i>
-                <span>Eventi</span>
+                <h3>Eventi</h3>
+                <p>Partecipa agli eventi.</p>
             </a>
 
             <a href="#news" class="quick-card">
                 <i class="fa-solid fa-newspaper"></i>
-                <span>News</span>
+                <h3>News</h3>
+                <p>Rimani aggiornato.</p>
             </a>
 
             <a href="#gallery" class="quick-card">
                 <i class="fa-solid fa-images"></i>
-                <span>Galleria</span>
+                <h3>Galleria</h3>
+                <p>Foto delle attività.</p>
             </a>
 
             <a href="#surveys" class="quick-card">
                 <i class="fa-solid fa-square-poll-horizontal"></i>
-                <span>Sondaggi</span>
+                <h3>Sondaggi</h3>
+                <p>Esprimi la tua opinione.</p>
             </a>
 
-            <a href="#contact" class="quick-card">
+            <a href="#contacts" class="quick-card">
                 <i class="fa-solid fa-envelope"></i>
-                <span>Contatti</span>
+                <h3>Contatti</h3>
+                <p>Scrivici facilmente.</p>
             </a>
 
         </div>
@@ -297,1157 +283,119 @@
     </div>
 
 </section>
-<!-- ==========================================================
-     CONTINUA NELLA PARTE 2
-     (inizia con la sezione "Chi Siamo")
-========================================================== -->
-        <!-- ======================================================
-             CHI SIAMO
-        ======================================================= -->
+<!-- =======================================================
+     CHI SIAMO
+======================================================= -->
 
-        <section id="about" class="about section">
+<section id="about" class="about section">
 
-            <div class="container">
+    <div class="container">
 
-                <div class="section-title">
+        <div class="section-title">
 
-                    <span>Chi siamo</span>
+            <span>Chi siamo</span>
 
-                    <h2>
-                        La Consulta Giovanile
-                    </h2>
+            <h2>La Consulta Giovanile</h2>
 
-                    <p>
-                        Un organismo di partecipazione che promuove il dialogo tra i giovani
-                        e l'Amministrazione Comunale, favorendo la crescita sociale,
-                        culturale e civica della comunità.
-                    </p>
-
-                </div>
-
-                <div class="about-grid">
-
-                    <div class="about-text">
-
-                        <h3>
-                            Un punto di riferimento per i giovani
-                        </h3>
-
-                        <p>
-
-                            La Consulta Giovanile di Castronuovo di Sant'Andrea rappresenta
-                            uno spazio di confronto, ascolto e partecipazione rivolto ai giovani
-                            del territorio.
-
-                        </p>
-
-                        <p>
-
-                            Attraverso idee, progetti e iniziative, la Consulta promuove una
-                            cittadinanza attiva e responsabile, valorizzando il contributo delle
-                            nuove generazioni nello sviluppo della comunità locale.
-
-                        </p>
-
-                        <p>
-
-                            L'obiettivo è creare opportunità di crescita personale e collettiva,
-                            collaborando con il Comune, le associazioni e tutte le realtà del
-                            territorio interessate alla costruzione di una comunità più inclusiva,
-                            dinamica e partecipata.
-
-                        </p>
-
-                        <ul class="about-list">
-
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Partecipazione attiva dei giovani
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Collaborazione con il Comune
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Organizzazione di eventi
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Inclusione sociale
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Valorizzazione del territorio
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Promozione delle idee dei giovani
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                    <div class="about-image">
-
-                        <img
-                            src="assets/img/about.jpg"
-                            alt="Giovani riuniti durante un incontro della Consulta"
-                            loading="lazy">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ======================================================
-             MISSIONE
-        ======================================================= -->
-
-        <section id="mission" class="mission section">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <span>Missione</span>
-
-                    <h2>
-                        I nostri valori
-                    </h2>
-
-                </div>
-
-                <div class="mission-grid">
-
-                    <article class="mission-card">
-
-                        <div class="icon">
-
-                            <i class="fa-solid fa-users"></i>
-
-                        </div>
-
-                        <h3>
-                            Partecipazione
-                        </h3>
-
-                        <p>
-
-                            Favorire il coinvolgimento dei giovani nella vita pubblica,
-                            stimolando il confronto, il dialogo e la partecipazione attiva.
-
-                        </p>
-
-                    </article>
-
-                    <article class="mission-card">
-
-                        <div class="icon">
-
-                            <i class="fa-solid fa-handshake"></i>
-
-                        </div>
-
-                        <h3>
-                            Collaborazione
-                        </h3>
-
-                        <p>
-
-                            Creare una rete tra cittadini, associazioni, scuole e
-                            Amministrazione Comunale per sviluppare progetti condivisi.
-
-                        </p>
-
-                    </article>
-
-                    <article class="mission-card">
-
-                        <div class="icon">
-
-                            <i class="fa-solid fa-lightbulb"></i>
-
-                        </div>
-
-                        <h3>
-                            Innovazione
-                        </h3>
-
-                        <p>
-
-                            Valorizzare le idee dei giovani, incentivando creatività,
-                            sostenibilità e sviluppo del territorio.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ======================================================
-             ATTIVITÀ
-        ======================================================= -->
-
-        <section id="activities" class="activities section">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <span>Attività</span>
-
-                    <h2>
-
-                        Le nostre iniziative
-
-                    </h2>
-
-                    <p>
-
-                        La Consulta promuove attività rivolte ai giovani e all'intera
-                        comunità, con l'obiettivo di favorire partecipazione, cultura,
-                        inclusione e sviluppo del territorio.
-
-                    </p>
-
-                </div>
-
-                <div class="activities-grid">
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-landmark"></i>
-
-                        <h3>Eventi culturali</h3>
-
-                        <p>
-                            Organizzazione di mostre, incontri, conferenze,
-                            manifestazioni e attività culturali.
-                        </p>
-
-                    </article>
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-futbol"></i>
-
-                        <h3>Sport</h3>
-
-                        <p>
-                            Tornei, giornate sportive e iniziative dedicate
-                            al benessere e alla socializzazione.
-                        </p>
-
-                    </article>
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-leaf"></i>
-
-                        <h3>Ambiente</h3>
-
-                        <p>
-                            Campagne ecologiche, sensibilizzazione e tutela
-                            del patrimonio naturale del territorio.
-                        </p>
-
-                    </article>
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-
-                        <h3>Volontariato</h3>
-
-                        <p>
-                            Attività solidali e iniziative rivolte
-                            alla comunità locale.
-                        </p>
-
-                    </article>
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-people-group"></i>
-
-                        <h3>Inclusione</h3>
-
-                        <p>
-                            Progetti per favorire integrazione,
-                            pari opportunità e partecipazione.
-                        </p>
-
-                    </article>
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-graduation-cap"></i>
-
-                        <h3>Formazione</h3>
-
-                        <p>
-                            Corsi, workshop e percorsi formativi
-                            rivolti ai giovani.
-                        </p>
-
-                    </article>
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-laptop-code"></i>
-
-                        <h3>Laboratori</h3>
-
-                        <p>
-                            Laboratori creativi, digitali e artistici
-                            per sviluppare nuove competenze.
-                        </p>
-
-                    </article>
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-school"></i>
-
-                        <h3>Scuola</h3>
-
-                        <p>
-                            Collaborazione con gli istituti scolastici
-                            e promozione dell'educazione civica.
-                        </p>
-
-                    </article>
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-mountain-city"></i>
-
-                        <h3>Territorio</h3>
-
-                        <p>
-                            Valorizzazione delle tradizioni,
-                            del turismo e delle eccellenze locali.
-                        </p>
-
-                    </article>
-
-                    <article class="activity-card">
-
-                        <i class="fa-solid fa-comments"></i>
-
-                        <h3>Incontri pubblici</h3>
-
-                        <p>
-                            Assemblee, tavoli di confronto
-                            e momenti di ascolto con i cittadini.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ======================================================
-             CONTINUA NELLA PARTE 3
-             (Eventi - Sondaggi - News - Galleria)
-        ======================================================= -->
-
-        <!-- ======================================================
-             EVENTI
-        ======================================================= -->
-
-        <section id="events" class="events section">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <span>Eventi</span>
-
-                    <h2>I prossimi appuntamenti</h2>
-
-                    <p>
-                        Iniziative, manifestazioni e momenti di incontro
-                        organizzati dalla Consulta Giovanile.
-                    </p>
-
-                </div>
-
-                <div class="events-grid">
-
-                    <!-- Evento -->
-
-                    <article class="event-card">
-
-                        <img
-                            src="assets/img/events/event-1.jpg"
-                            alt="Evento culturale"
-                            loading="lazy">
-
-                        <div class="event-content">
-
-                            <span class="event-date">
-                                <i class="fa-regular fa-calendar"></i>
-                                15 Agosto 2026
-                            </span>
-
-                            <h3>Festival dei Giovani</h3>
-
-                            <p>
-
-                                Una giornata dedicata alla musica,
-                                alla cultura e alla partecipazione
-                                delle nuove generazioni.
-
-                            </p>
-
-                            <a href="#" class="btn btn-primary">
-
-                                Scopri
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                    <article class="event-card">
-
-                        <img
-                            src="assets/img/events/event-2.jpg"
-                            alt="Sport"
-                            loading="lazy">
-
-                        <div class="event-content">
-
-                            <span class="event-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                5 Settembre 2026
-
-                            </span>
-
-                            <h3>
-
-                                Giornata dello Sport
-
-                            </h3>
-
-                            <p>
-
-                                Attività sportive aperte a tutti,
-                                tornei e dimostrazioni.
-
-                            </p>
-
-                            <a href="#" class="btn btn-primary">
-
-                                Scopri
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                    <article class="event-card">
-
-                        <img
-                            src="assets/img/events/event-3.jpg"
-                            alt="Ambiente"
-                            loading="lazy">
-
-                        <div class="event-content">
-
-                            <span class="event-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                20 Settembre 2026
-
-                            </span>
-
-                            <h3>
-
-                                Puliamo il Paese
-
-                            </h3>
-
-                            <p>
-
-                                Giornata ecologica dedicata
-                                alla cura del territorio.
-
-                            </p>
-
-                            <a href="#" class="btn btn-primary">
-
-                                Scopri
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ======================================================
-             SONDAGGI
-        ======================================================= -->
-
-        <section id="surveys" class="surveys section">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <span>Sondaggi</span>
-
-                    <h2>
-
-                        La tua opinione conta
-
-                    </h2>
-
-                    <p>
-
-                        La tua opinione è importante.
-                        Attraverso i sondaggi puoi contribuire
-                        concretamente alle decisioni della
-                        Consulta Giovanile.
-
-                    </p>
-
-                </div>
-
-                <div class="survey-grid">
-
-                    <article class="survey-card">
-
-                        <h3>
-
-                            Idee per nuovi eventi
-
-                        </h3>
-
-                        <p>
-
-                            Proponi attività,
-                            manifestazioni e iniziative
-                            dedicate ai giovani.
-
-                        </p>
-
-                        <span>
-
-                            Aggiornato:
-                            Luglio 2026
-
-                        </span>
-
-                        <!--
-                            Inserire qui il link Google Forms
-                            oppure Microsoft Forms
-                        -->
-
-                        <a href="#"
-                           class="btn btn-secondary">
-
-                            Partecipa
-
-                        </a>
-
-                    </article>
-
-                    <article class="survey-card">
-
-                        <h3>
-
-                            Spazi Giovanili
-
-                        </h3>
-
-                        <p>
-
-                            Aiutaci a capire quali servizi
-                            e spazi potrebbero essere
-                            migliorati.
-
-                        </p>
-
-                        <span>
-
-                            Aggiornato:
-                            Agosto 2026
-
-                        </span>
-
-                        <a href="#"
-                           class="btn btn-secondary">
-
-                            Partecipa
-
-                        </a>
-
-                    </article>
-
-                    <article class="survey-card">
-
-                        <h3>
-
-                            Formazione
-
-                        </h3>
-
-                        <p>
-
-                            Dicci quali corsi,
-                            workshop e laboratori
-                            vorresti frequentare.
-
-                        </p>
-
-                        <span>
-
-                            Aggiornato:
-                            Agosto 2026
-
-                        </span>
-
-                        <a href="#"
-                           class="btn btn-secondary">
-
-                            Partecipa
-
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ======================================================
-             NEWS
-        ======================================================= -->
-
-        <section id="news" class="news section">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <span>News</span>
-
-                    <h2>
-
-                        Ultime notizie
-
-                    </h2>
-
-                </div>
-
-                <div class="news-grid">
-
-                    <article class="news-card">
-
-                        <img
-                            src="assets/img/logo.png"
-                            alt="News 1"
-                            loading="lazy">
-
-                        <div class="news-content">
-
-                            <span>
-
-                                18 Luglio 2026
-
-                            </span>
-
-                            <h3>
-
-                                Nasce la nuova Consulta
-
-                            </h3>
-
-                            <p>
-
-                                Avviate le attività
-                                della nuova Consulta
-                                Giovanile.
-
-                            </p>
-
-                            <a href="#"
-                               class="btn btn-primary">
-
-                                Leggi
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                    <article class="news-card">
-
-                        <img
-                            src="assets/img/news/news2.jpg"
-                            alt="News 2"
-                            loading="lazy">
-
-                        <div class="news-content">
-
-                            <span>
-
-                                28 Luglio 2026
-
-                            </span>
-
-                            <h3>
-
-                                Nuovi progetti
-
-                            </h3>
-
-                            <p>
-
-                                In arrivo nuove iniziative
-                                dedicate ai giovani
-                                del territorio.
-
-                            </p>
-
-                            <a href="#"
-                               class="btn btn-primary">
-
-                                Leggi
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                    <article class="news-card">
-
-                        <img
-                            src="assets/img/news/news3.jpg"
-                            alt="News 3"
-                            loading="lazy">
-
-                        <div class="news-content">
-
-                            <span>
-
-                                2 Agosto 2026
-
-                            </span>
-
-                            <h3>
-
-                                Assemblea Pubblica
-
-                            </h3>
-
-                            <p>
-
-                                Convocazione aperta
-                                ai giovani del Comune.
-
-                            </p>
-
-                            <a href="#"
-                               class="btn btn-primary">
-
-                                Leggi
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ======================================================
-             GALLERIA
-        ======================================================= -->
-
-        <section id="gallery" class="gallery section">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <span>Galleria</span>
-
-                    <h2>
-
-                        I nostri momenti
-
-                    </h2>
-
-                </div>
-
-                <div class="gallery-grid">
-
-                    <img src="assets/img/gallery/1.jpg" alt="Foto 1" class="gallery-item" loading="lazy">
-
-                    <img src="assets/img/gallery/2.jpg" alt="Foto 2" class="gallery-item" loading="lazy">
-
-                    <img src="assets/img/gallery/3.jpg" alt="Foto 3" class="gallery-item" loading="lazy">
-
-                    <img src="assets/img/gallery/4.jpg" alt="Foto 4" class="gallery-item" loading="lazy">
-
-                    <img src="assets/img/gallery/5.jpg" alt="Foto 5" class="gallery-item" loading="lazy">
-
-                    <img src="assets/img/gallery/6.jpg" alt="Foto 6" class="gallery-item" loading="lazy">
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- Lightbox -->
-
-        <div class="lightbox" id="lightbox" aria-hidden="true">
-
-            <button
-                class="lightbox-close"
-                aria-label="Chiudi">
-
-                &times;
-
-            </button>
-
-            <img
-                src=""
-                alt="Immagine ingrandita"
-                id="lightbox-image">
+            <p>
+                Un organismo di partecipazione che valorizza il ruolo dei giovani
+                nella vita sociale, culturale e istituzionale del territorio.
+            </p>
 
         </div>
 
-        <!-- ======================================================
-             CONTINUA NELLA PARTE 4
-             FAQ - CONTATTI - FOOTER - COOKIE BANNER
-        ======================================================= -->
-        <!-- ======================================================
-             FAQ
-        ======================================================= -->
+        <div class="about-grid">
 
-        <section id="faq" class="faq section">
+            <!-- Testo -->
 
-            <div class="container">
+            <div class="about-text">
 
-                <div class="section-title">
+                <h3>Un punto di riferimento per i giovani del territorio</h3>
 
-                    <span>FAQ</span>
+                <p>
 
-                    <h2>Domande frequenti</h2>
+                    La Consulta Giovanile di Castronuovo di Sant'Andrea nasce con
+                    l'obiettivo di coinvolgere i giovani nella vita della comunità,
+                    promuovendo partecipazione, confronto e cittadinanza attiva.
 
-                    <p>
-                        Alcune delle domande più frequenti sulla Consulta Giovanile.
-                    </p>
+                </p>
 
-                </div>
+                <p>
 
-                <div class="faq-container">
+                    Attraverso iniziative, eventi, progetti e collaborazioni con
+                    il Comune e le associazioni locali, la Consulta favorisce la
+                    crescita personale dei ragazzi e contribuisce allo sviluppo
+                    sociale e culturale del paese.
 
-                    <article class="faq-item">
+                </p>
 
-                        <button class="faq-question">
+                <div class="about-features">
 
-                            Cos'è la Consulta Giovanile?
+                    <div class="feature">
 
-                            <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-users"></i>
 
-                        </button>
+                        <div>
 
-                        <div class="faq-answer">
+                            <h4>Partecipazione</h4>
 
-                            <p>
-
-                                La Consulta Giovanile è un organismo di partecipazione che
-                                promuove il coinvolgimento dei giovani nella vita sociale,
-                                culturale e civica del Comune.
-
-                            </p>
+                            <p>I giovani diventano protagonisti della comunità.</p>
 
                         </div>
 
-                    </article>
+                    </div>
 
-                    <article class="faq-item">
+                    <div class="feature">
 
-                        <button class="faq-question">
+                        <i class="fa-solid fa-lightbulb"></i>
 
-                            Chi può partecipare?
+                        <div>
 
-                            <i class="fa-solid fa-plus"></i>
+                            <h4>Progetti</h4>
 
-                        </button>
-
-                        <div class="faq-answer">
-
-                            <p>
-
-                                Le modalità di adesione saranno pubblicate nel regolamento
-                                ufficiale della Consulta.
-
-                            </p>
+                            <p>Idee concrete per valorizzare il territorio.</p>
 
                         </div>
 
-                    </article>
+                    </div>
 
-                    <article class="faq-item">
+                    <div class="feature">
 
-                        <button class="faq-question">
+                        <i class="fa-solid fa-handshake"></i>
 
-                            Come posso proporre un progetto?
+                        <div>
 
-                            <i class="fa-solid fa-plus"></i>
+                            <h4>Collaborazione</h4>
 
-                        </button>
-
-                        <div class="faq-answer">
-
-                            <p>
-
-                                Sarà possibile inviare proposte tramite i canali ufficiali
-                                della Consulta, che verranno inseriti successivamente.
-
-                            </p>
+                            <p>Lavoriamo insieme al Comune e alle associazioni.</p>
 
                         </div>
 
-                    </article>
+                    </div>
 
                 </div>
 
             </div>
 
-        </section>
+            <!-- Card -->
 
-        <!-- ======================================================
-             CONTATTI
-        ======================================================= -->
-
-        <section id="contacts" class="contacts section">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <span>Contatti</span>
-
-                    <h2>Restiamo in contatto</h2>
-
-                    <p>
-
-                        I recapiti ufficiali saranno pubblicati prossimamente.
-
-                    </p>
-
-                </div>
-
-                <div class="contact-placeholder">
-
-                    <i class="fa-regular fa-envelope"></i>
-
-                    <h3>Email istituzionale</h3>
-
-                    <p>
-
-                        <!-- INSERIRE QUI L'EMAIL UFFICIALE -->
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- ======================================================
-         FOOTER
-    ======================================================= -->
-
-    <footer class="footer">
-
-        <div class="container footer-grid">
-
-            <div class="footer-column">
-
-                <!--
-                    LOGO UFFICIALE
-                    Sostituire il placeholder
-                -->
+            <div class="about-card">
 
                 <img
-                    src="assets/img/logo.png"
-                    alt="Logo Consulta"
-                    class="footer-logo">
+                    src="assets/img/about.jpg"
+                    alt="Consulta Giovanile">
 
-                <p>
+                <div class="about-card-content">
 
-                    Consulta Giovanile
-                    Castronuovo di Sant'Andrea (PZ)
+                    <h3>La nostra missione</h3>
 
-                </p>
+                    <p>
 
-                <p>
+                        Creare uno spazio aperto, inclusivo e partecipativo,
+                        capace di ascoltare le idee dei giovani e trasformarle
+                        in opportunità concrete per tutta la comunità.
 
-                    Uno spazio dedicato alla partecipazione,
-                    alle idee e alla crescita della comunità.
-
-                </p>
-
-            </div>
-
-            <div class="footer-column">
-
-                <h3>
-
-                    Link rapidi
-
-                </h3>
-
-                <ul>
-
-                    <li><a href="#about">Chi siamo</a></li>
-
-                    <li><a href="#events">Eventi</a></li>
-
-                    <li><a href="#news">News</a></li>
-
-                    <li><a href="#gallery">Galleria</a></li>
-
-                    <li><a href="#contacts">Contatti</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-column">
-
-                <h3>
-
-                    Documenti
-
-                </h3>
-
-                <ul>
-
-                    <li>
-
-                        <a href="privacy.html">
-
-                            Privacy Policy
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="cookie-policy.html">
-
-                            Cookie Policy
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Regolamento
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#">
-
-                            Verbali
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-column">
-
-                <h3>
-
-                    Social
-
-                </h3>
-
-                <div class="social-links">
-
-                    <!--
-                        Inserire successivamente
-                        i link ufficiali
-                    -->
-
-                    <a href="#" aria-label="Facebook">
-
-                        <i class="fab fa-facebook-f"></i>
-
-                    </a>
-
-                    <a href="#" aria-label="Instagram">
-
-                        <i class="fab fa-instagram"></i>
-
-                    </a>
-
-                    <a href="#" aria-label="YouTube">
-
-                        <i class="fab fa-youtube"></i>
-
-                    </a>
+                    </p>
 
                 </div>
 
@@ -1455,97 +403,377 @@
 
         </div>
 
-        <div class="footer-bottom">
+    </div>
+
+</section>
+<!-- =======================================================
+     MISSIONE
+======================================================= -->
+
+<section id="mission" class="mission section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Missione</span>
+
+            <h2>I nostri obiettivi</h2>
 
             <p>
-
-                © <span id="currentYear"></span>
-
-                Consulta Giovanile Castronuovo di Sant'Andrea (PZ)
-
-                - Tutti i diritti riservati.
-
+                La Consulta Giovanile opera per rendere i giovani protagonisti della
+                vita sociale, culturale e istituzionale del territorio.
             </p>
 
         </div>
 
-    </footer>
+        <div class="mission-grid">
 
-    <!-- ======================================================
-         COOKIE BANNER
-    ======================================================= -->
+            <div class="mission-card">
 
-    <aside
-        id="cookieBanner"
-        class="cookie-banner"
-        aria-live="polite">
+                <i class="fa-solid fa-users"></i>
 
-        <div class="cookie-content">
+                <h3>Partecipazione</h3>
 
-            <h3>
+                <p>
+                    Favorire il coinvolgimento attivo dei giovani nella vita del paese,
+                    dando voce alle loro idee e proposte.
+                </p>
 
-                Gestione Cookie
+            </div>
 
-            </h3>
+            <div class="mission-card">
 
-            <p>
+                <i class="fa-solid fa-lightbulb"></i>
 
-                Questo sito utilizza esclusivamente cookie tecnici
-                necessari al funzionamento.
+                <h3>Innovazione</h3>
 
-                Eventuali cookie statistici (es. Google Analytics 4)
-                o servizi di terze parti saranno attivati
-                solo previo consenso.
+                <p>
+                    Promuovere progetti innovativi che valorizzino il territorio,
+                    la creatività e le competenze delle nuove generazioni.
+                </p>
 
-            </p>
+            </div>
 
-            <div class="cookie-buttons">
+            <div class="mission-card">
 
-                <button id="acceptCookies"
-                        class="btn btn-primary">
+                <i class="fa-solid fa-handshake"></i>
 
-                    Accetta
+                <h3>Collaborazione</h3>
 
-                </button>
+                <p>
+                    Collaborare con il Comune, le associazioni e le realtà locali
+                    per costruire iniziative condivise.
+                </p>
 
-                <button id="rejectCookies"
-                        class="btn btn-secondary">
+            </div>
 
-                    Rifiuta
+            <div class="mission-card">
 
-                </button>
+                <i class="fa-solid fa-seedling"></i>
 
-                <button id="preferencesCookies"
-                        class="btn btn-outline">
+                <h3>Crescita</h3>
 
-                    Preferenze
+                <p>
+                    Creare opportunità di formazione, volontariato, cultura
+                    e sviluppo personale per tutti i giovani.
+                </p>
 
-                </button>
+            </div>
+
+            <div class="mission-card">
+
+                <i class="fa-solid fa-earth-europe"></i>
+
+                <h3>Territorio</h3>
+
+                <p>
+                    Valorizzare Castronuovo di Sant'Andrea attraverso eventi,
+                    iniziative culturali e attività sociali.
+                </p>
+
+            </div>
+
+            <div class="mission-card">
+
+                <i class="fa-solid fa-heart"></i>
+
+                <h3>Comunità</h3>
+
+                <p>
+                    Rafforzare il senso di appartenenza, inclusione e partecipazione
+                    all'interno della comunità locale.
+                </p>
 
             </div>
 
         </div>
 
-    </aside>
+    </div>
 
-    <!-- ======================================================
-         TORNA SU
-    ======================================================= -->
+</section>
+<!-- =======================================================
+     ATTIVITÀ
+======================================================= -->
 
-    <button
-        id="backToTop"
-        aria-label="Torna in cima">
+<section id="activities" class="activities section">
 
-        <i class="fa-solid fa-arrow-up"></i>
+    <div class="container">
 
-    </button>
+        <div class="section-title">
 
-    <!-- ======================================================
-         JAVASCRIPT
-    ======================================================= -->
+            <span>Attività</span>
 
-    <script src="script.js" defer></script>
+            <h2>Cosa facciamo</h2>
 
-</body>
+            <p>
+                La Consulta Giovanile promuove iniziative concrete per favorire
+                la partecipazione dei giovani e valorizzare il territorio.
+            </p>
 
-</html>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>Assemblee e incontri</h3>
+
+                    <p>
+                        Organizziamo incontri periodici aperti ai giovani per
+                        raccogliere idee, confrontarsi e progettare nuove iniziative.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>Eventi sul territorio</h3>
+
+                    <p>
+                        Collaboriamo nell'organizzazione di manifestazioni,
+                        attività culturali, sportive e ricreative.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>Nuovi progetti</h3>
+
+                    <p>
+                        Sviluppiamo idee innovative per rendere il paese più
+                        dinamico e vicino alle esigenze delle nuove generazioni.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>Collaborazioni</h3>
+
+                    <p>
+                        Lavoriamo insieme al Comune, alle associazioni e agli
+                        enti locali per realizzare iniziative condivise.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>Ascolto dei giovani</h3>
+
+                    <p>
+                        Attraverso questionari e momenti di confronto raccogliamo
+                        proposte e suggerimenti per migliorare il territorio.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =======================================================
+     EVENTI
+======================================================= -->
+
+<section id="events" class="events section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Eventi</span>
+
+            <h2>Prossimi appuntamenti</h2>
+
+            <p>
+                Rimani aggiornato sugli eventi organizzati dalla Consulta
+                Giovanile e partecipa alle iniziative dedicate alla comunità.
+            </p>
+
+        </div>
+
+        <div class="events-grid">
+
+            <!-- Evento -->
+
+            <article class="event-card">
+
+                <div class="event-date">
+
+                    <span class="day">25</span>
+
+                    <span class="month">LUG</span>
+
+                </div>
+
+                <img
+                    src="assets/img/event1.jpg"
+                    alt="Evento">
+
+                <div class="event-content">
+
+                    <h3>Assemblea dei Giovani</h3>
+
+                    <p>
+
+                        Incontro aperto alla cittadinanza per raccogliere idee
+                        e proposte per le attività future della Consulta.
+
+                    </p>
+
+                    <div class="event-info">
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Sala Consiliare
+
+                        </span>
+
+                        <span>
+
+                            <i class="fa-solid fa-clock"></i>
+
+                            Ore 18:00
+
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="btn btn-primary">
+
+                        Scopri di più
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!-- Evento -->
+
+            <article class="event-card">
+
+                <div class="event-date">
+
+                    <span class="day">10</span>
+
+                    <span class="month">AGO</span>
+
+                </div>
+
+                <img
+                    src="assets/img/event2.jpg"
+                    alt="Evento">
+
+                <div class="event-content">
+
+                    <h3>Serata Giovani</h3>
+
+                    <p>
+
+                        Un momento di aggregazione con musica, attività e
+                        intrattenimento aperto a tutti.
+
+                    </p>
+
+                    <div class="event-info">
+
+                        <span>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Piazza del Comune
+
+                        </span>
+
+                        <span>
+
+                            <i class="fa-solid fa-clock"></i>
+
+                            Ore 21:00
+
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="btn btn-primary">
+
+                        Scopri di più
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
