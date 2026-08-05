@@ -1890,3 +1890,194 @@ button{
     transform:translateY(-9px) rotate(-45deg);
 
 }
+/* =======================================================
+   ACCESSO RAPIDO - RESTYLING
+======================================================= */
+
+.quick-links {
+
+    padding:90px 0;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff,
+        #f8fafc
+    );
+
+}
+
+
+.quick-grid {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:25px;
+
+    margin-top:45px;
+
+}
+
+
+.quick-card {
+
+    position:relative;
+
+    background:white;
+
+    padding:35px 25px;
+
+    border-radius:24px;
+
+    text-align:center;
+
+    color:var(--black);
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.07);
+
+    border:
+    1px solid rgba(226,232,240,.8);
+
+    transition:
+    .35s ease;
+
+    overflow:hidden;
+
+}
+
+
+/* effetto luce */
+
+.quick-card::before {
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    background:
+    rgba(14,165,233,.12);
+
+    border-radius:50%;
+
+    top:-50px;
+
+    right:-50px;
+
+}
+
+
+
+/* Hover */
+
+.quick-card:hover {
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 25px 50px rgba(15,23,42,.12);
+
+}
+
+
+
+/* Icona */
+
+.quick-card i {
+
+    position:relative;
+
+    width:70px;
+
+    height:70px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:
+    0 auto 20px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--secondary-color),
+        var(--accent-color)
+    );
+
+    color:white;
+
+    font-size:1.8rem;
+
+}
+
+
+
+/* Titolo */
+
+.quick-card h3 {
+
+    font-size:1.2rem;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+}
+
+
+
+/* Descrizione */
+
+.quick-card p {
+
+    color:
+    var(--gray-500);
+
+    font-size:.9rem;
+
+    line-height:1.5;
+
+}
+
+
+
+/* Tablet */
+
+@media(max-width:992px){
+
+    .quick-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+
+
+/* Smartphone */
+
+@media(max-width:600px){
+
+    .quick-grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+}
